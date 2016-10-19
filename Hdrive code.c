@@ -8,7 +8,7 @@
 
 task main()
 {
-  while(1 == 1)
+  while(true)
   {
     if(vexRT[LeftX] != 0)
     {
@@ -22,4 +22,49 @@ task main()
       motor[fifthWheel] = -vexRT[RightY];
     }
   }
+}
+
+int getRightX()
+{
+  return vexRT[RightX];
+}
+
+int getRightY()
+{
+  return vexRT[RightY];
+}
+
+int getLeftX()
+{
+  return vexRT[LeftX];
+}
+
+int getLeftY()
+{
+  return vexRT[LeftY];
+}
+
+void setMotors()
+{
+  
+}
+
+void setFrontRightMotor(int power)
+{
+  motor[frontRightMotor] = power;
+}
+
+void setFrontLeftMotor(int power)
+{
+  motor[frontLeftMotor] = power;
+}
+
+void setBackRightMotor(int power)
+{
+  motor[frontRightMotor] = power;
+}
+
+void setFrontLeftMotor(int power)
+{
+  motor[frontLeftMotor] = power;
 }
