@@ -38,6 +38,7 @@ void setMotors(int leftPower, int rightPower, int midPower)
 {
   setLeftMotor(leftPower);
   setRightMotor(rightPower);
+  setMidMotor(midPower);
 }
 
 void setRightMotor(int power)
