@@ -1,6 +1,6 @@
-#pragma config(Motor,  port1, frontLeftMotor, tmotorVex393_HBridge, openLoop, reversed, driveRight)
+#pragma config(Motor,  port1, leftMotor, tmotorVex393_HBridge, openLoop, reversed, driveRight)
 #pragma config(Motor,  port9, fifthWheel,    tmotorVex393_MC29, openLoop)
-#pragma config(Motor,  port10, frontRightMotor, tmotorVex393_HBridge, openLoop, driveLeft)
+#pragma config(Motor,  port10, rightMotor, tmotorVex393_HBridge, openLoop, driveLeft)
 #define LeftX Ch4
 #define LeftY Ch3
 #define RightX Ch2
@@ -10,17 +10,7 @@ task main()
 {
   while(true)
   {
-    if(vexRT[LeftX] != 0)
-    {
-      motor[frontRightMotor] = -vexRT[LeftX];
-      motor[frontLeftMotor] = vexRT[LeftX];
-    }
-    else
-    {
-      motor[frontRightMotor] = vexRT[RightX];
-      motor[frontLeftMotor] = vexRT[RightX];
-      motor[fifthWheel] = -vexRT[RightY];
-    }
+    setMotors(getLeftY() + getRightX(), getLeftY() - getRightX(), getLeftX());
   }
 }
 
@@ -44,27 +34,35 @@ int getLeftY()
   return vexRT[LeftY];
 }
 
-void setMotors()
+void setMotors(int leftPower, int rightPower, int midPower)
 {
-  
+  setLeftMotor(leftPower);
+  setRightMotor(rightPower);
 }
 
-void setFrontRightMotor(int power)
+void setRightMotor(int power)
 {
-  motor[frontRightMotor] = power;
+  if (power > 127)
+    power = 127;
+  if (power < -127)
+    power = -127;
+  motor[rightMotor] = power;
 }
 
-void setFrontLeftMotor(int power)
+void setLeftMotor(int power)
 {
-  motor[frontLeftMotor] = power;
+  if (power > 127)
+    power = 127;
+  if (power < -127)
+    power = -127;
+  motor[leftMotor] = power;
 }
 
-void setBackRightMotor(int power)
+void setMidMotor(int power)
 {
-  motor[frontRightMotor] = power;
-}
-
-void setFrontLeftMotor(int power)
-{
-  motor[frontLeftMotor] = power;
+  if (power > 127)
+    power = 127;
+  if (power < -127)
+    power = -127;
+  motor[fifthWheel] = power;
 }
