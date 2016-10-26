@@ -1,6 +1,7 @@
-#pragma config(Motor,  port1, leftMotor, tmotorVex393_HBridge, openLoop, reversed, driveRight)
-#pragma config(Motor,  port9, fifthWheel,    tmotorVex393_MC29, openLoop)
-#pragma config(Motor,  port10, rightMotor, tmotorVex393_HBridge, openLoop, driveLeft)
+#pragma config(Motor,	 port2,						North,				 tmotorVex393_MC29, openLoop)
+#pragma config(Motor,	 port3,						East,					 tmotorVex393_MC29, openLoop)
+#pragma config(Motor,	 port4,						South,				 tmotorVex393_MC29, openLoop)
+#pragma config(Motor,	 port5,						West,					 tmotorVex393_MC29, openLoop)
 
 #define LeftX Ch4
 #define LeftY Ch3
