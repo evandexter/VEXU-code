@@ -69,7 +69,7 @@ void setLeftMotor(int power)
     power = 127;
   if (power < -127)
     power = -127;
-  motor[leftMotor] = -power;
+  motor[leftMotor] = power;
 }
 
 void setFrontMotor(int power)
@@ -87,5 +87,5 @@ void setRearMotor(int power)
     power = 127;
   if (power < -127)
     power = -127;
-  motor[rearMotor] = -power;
+  motor[rearMotor] = power;
 }
