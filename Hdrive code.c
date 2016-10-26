@@ -1,6 +1,7 @@
 #pragma config(Motor,  port1, leftMotor, tmotorVex393_HBridge, openLoop, reversed, driveRight)
 #pragma config(Motor,  port9, fifthWheel,    tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port10, rightMotor, tmotorVex393_HBridge, openLoop, driveLeft)
+
 #define LeftX Ch4
 #define LeftY Ch3
 #define RightX Ch2
@@ -10,10 +11,10 @@ int getRightX();
 int getRightY();
 int getLeftX();
 int getLeftY();
-void setMotors(int, int, int);
-void setLeftMotor(int);
-void setRightMotor(int);
-void setMidMotor(int);
+void setMotors(int leftPower, int rightPower, int midPower);
+void setLeftMotor(int power);
+void setRightMotor(int power);
+void setMidMotor(int power);
 
 task main()
 {
