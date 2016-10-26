@@ -5,8 +5,8 @@
 
 #define LeftX Ch4
 #define LeftY Ch3
-#define RightX Ch2
-#define RightY Ch1
+#define RightX Ch1
+#define RightY Ch2
 
 int getRightX();
 int getRightY();
@@ -22,7 +22,7 @@ task main()
 {
   while(true)
   {
-    setMotors(getLeftY() + getRightX(), getLeftY() - getRightX(), getLeftX() + getRightX(), getLeftX() - getRightX());
+    setMotors(getLeftY() + getRightX(), getLeftY() + getRightX(), getLeftX() + getRightX(), getLeftX() + getRightX());
   }
 }
 
