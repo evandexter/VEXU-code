@@ -22,7 +22,10 @@ task main()
 {
   while(true)
   {
-    setMotors(getLeftY() + getRightX(), getLeftY() + getRightX(), getLeftX() + getRightX(), getLeftX() + getRightX());
+		setLeftMotor(getLeftY() + getRightX());
+		setRightMotor(getLeftY() - getRightX());
+		setFrontMotor(getLeftX() + getRightX());
+		setRearMotor(getLeftX() - getRightX());
   }
 }
 
@@ -78,7 +81,7 @@ void setFrontMotor(int power)
     power = 127;
   if (power < -127)
     power = -127;
-  motor[frontMotor] = power;
+  motor[frontMotor] = -power;
 }
 
 void setRearMotor(int power)
@@ -87,5 +90,5 @@ void setRearMotor(int power)
     power = 127;
   if (power < -127)
     power = -127;
-  motor[rearMotor] = power;
+  motor[rearMotor] = -power;
 }
