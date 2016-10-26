@@ -6,6 +6,15 @@
 #define RightX Ch2
 #define RightY Ch1
 
+int getRightX();
+int getRightY();
+int getLeftX();
+int getLeftY();
+void setMotors(int, int, int);
+void setLeftMotor(int);
+void setRightMotor(int);
+void setMidMotor(int);
+
 task main()
 {
   while(true)
