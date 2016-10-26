@@ -1,7 +1,7 @@
-#pragma config(Motor,	 port2,						frontMotor,				 tmotorVex393_MC29, openLoop)
-#pragma config(Motor,	 port3,						rightMotor,					 tmotorVex393_MC29, openLoop)
-#pragma config(Motor,	 port4,						rearMotor,				 tmotorVex393_MC29, openLoop)
-#pragma config(Motor,	 port5,						leftMotor,					 tmotorVex393_MC29, openLoop)
+#pragma config(Motor,	 port2,			frontMotor,				tmotorVex393_MC29, openLoop)
+#pragma config(Motor,	 port3,			rightMotor,				tmotorVex393_MC29, openLoop)
+#pragma config(Motor,	 port4,			rearMotor,				tmotorVex393_MC29, openLoop)
+#pragma config(Motor,	 port5,			leftMotor,				tmotorVex393_MC29, openLoop)
 
 #define LeftX Ch4
 #define LeftY Ch3
