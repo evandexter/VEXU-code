@@ -14,6 +14,12 @@ int taskList[] =
   1
 };
 
+bool waitList[] =
+{
+  false,
+  false
+};
+
 bool doneList[taskNum];
 
 task main()
@@ -24,7 +30,7 @@ task main()
     // other code
     for (int i = 0; i < taskNum; i++)
     {
-      if (timeList[i] <= time1[T1] && doneList[i] == false)
+      if (timeList[i] <= time1[T1] && !doneList[i] && (i == 0 || (!waitList[i] || doneList[i - 1])))
       {
         if (taskList[i] == 1)
         {
