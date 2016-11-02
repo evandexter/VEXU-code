@@ -1,17 +1,20 @@
-bool task1();
+bool goForwards();
+bool goBackwards();
 
 int timeList[] =
 {
-  1000,
-  2000
+  10000,
+  20000
 };
 
 const int taskNum = sizeof(timeList) / sizeof(timeList[0]);
+const int FORWARDS = 1;
+const int BACKWARDS = 2;
 
 int taskList[] =
 {
-  1,
-  1
+  FORWARDS,
+  BACKWARDS
 };
 
 bool waitList[] =
@@ -32,9 +35,13 @@ task main()
     {
       if (timeList[i] <= time1[T1] && !doneList[i] && (i == 0 || (!waitList[i] || doneList[i - 1])))
       {
-        if (taskList[i] == 1)
+        switch(taskList[i])
         {
-          doneList[i] = task1();
+        	case FORWARDS:
+        		doneList[i] = goForwards();
+
+        	case BACKWARDS:
+        		doneList[i] = goBackwards();
         }
         // other tasks
       }
@@ -43,7 +50,13 @@ task main()
 }
 
 // Task #1
-bool task1()
+bool goForwards()
+{
+  return true;
+}
+
+// Task #2
+bool goBackwards()
 {
   return true;
 }
