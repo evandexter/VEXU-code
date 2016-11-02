@@ -1,13 +1,14 @@
-bool task();
-int taskNum = 2;
+bool task1();
 
-int timeList[taskNum] =
+int timeList[] =
 {
   1000,
   2000
 };
 
-int taskList[taskNum] =
+const int taskNum = sizeof(timeList) / sizeof(timeList[0]);
+
+int taskList[] =
 {
   1,
   1
@@ -17,7 +18,7 @@ bool doneList[taskNum];
 
 task main()
 {
-  ClearTimer(T1);
+  clearTimer(T1);
   while(true)
   {
     // other code
@@ -27,7 +28,7 @@ task main()
       {
         if (taskList[i] == 1)
         {
-          doneList[i] = task();
+          doneList[i] = task1();
         }
         // other tasks
       }
@@ -36,7 +37,7 @@ task main()
 }
 
 // Task #1
-bool task()
+bool task1()
 {
   return true;
 }
