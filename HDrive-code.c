@@ -19,12 +19,41 @@ void setMotors(int leftPower, int rightPower, int midPower);
 void setLeftMotor(int power);
 void setRightMotor(int power);
 void setMidMotor(int power);
+bool goForwards();
+bool goBackwards();
+bool stop();
+
+int timeList[] =
+{
+  1000,
+  3000
+};
+
+const int taskNum = sizeof(timeList) / sizeof(timeList[0]);
+const int FORWARDS = 1;
+const int BACKWARDS = 2;
+const int STOP = 3;
+
+int taskList[] =
+{
+  FORWARDS,
+  STOP
+};
+
+bool waitList[] =
+{
+  false,
+  false
+};
+
+bool doneList[taskNum];
 
 task main()
 {
+  clearTimer(T1);
   while(true)
   {
-  	if(vexRT[ButtonL] == 1) {
+    if(vexRT[ButtonL] == 1) {
   	  motor[arm] = 127;
   	}
   	else if (vexRT[ButtonR] == 1) {
@@ -34,7 +63,45 @@ task main()
   	  motor[arm] = 0;
   	}
     setMotors(getLeftY() + getRightX(), getLeftY() - getRightX(), getLeftX());
+    //Autonomous V
+    for (int i = 0; i < taskNum; i++)
+    {
+      if (timeList[i] <= time1[T1] && !doneList[i] && (i == 0 || (!waitList[i] || doneList[i - 1])))
+      {
+        switch(taskList[i])
+        {
+        	case FORWARDS:
+        		doneList[i] = goForwards();
+        	case BACKWARDS:
+        		doneList[i] = goBackwards();
+          case STOP:
+            doneList[i] = stop();
+          // other tasks
+        }
+      }
+    }
   }
+}
+
+// Task #1
+bool goForwards()
+{
+  setMotors(127, 127, 0);
+  return true;
+}
+
+// Task #2
+bool goBackwards()
+{
+  setMotors(-127, -127, 0);
+  return true;
+}
+
+// Task #3
+bool stop()
+{
+  setMotors(0, 0, 0);
+  return true;
 }
 
 int getRightX()
